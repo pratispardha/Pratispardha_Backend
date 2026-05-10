@@ -1,8 +1,10 @@
 const cors = require('cors');
 const express = require('express');
+const dotenv = require('dotenv');
+const envFile = `.env.${process.env.NODE_ENV || 'dev'}`;
+dotenv.config({ path: envFile });
 const port = process.env.PORT || 3000; 
 const app = express();
-require('dotenv').config();
 app.use(cors());
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({
@@ -27,11 +29,10 @@ mongoose.connect(process.env.MONGO_URL)
         app.use('/contact', contactRouter);
         app.use(playerRouter);
         app.listen(port, () => {
-            console.log("Server Is Running")
+            console.log("Server Is Running on port " + port);
             console.log("successfully connected to database....")
         })
     }).catch(err => {
         console.log(err);
     })
 
-//.........................SHELU DATABASE COnnectivity.........mongodb+srv://root:root@cluster0.gffjq.mongodb.net/pratisparda?retryWrites=true&w=majority

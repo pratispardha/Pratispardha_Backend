@@ -183,14 +183,14 @@ exports.playerSignup = async (request, response, next) => {
                 text: message
 
             };
-            transporter.sendMail(mailData, function (err, info) {
-                if (err) {
-                    console.log(err)
-                    return response.status(500).json({ message: "Internal Server Error" });
+            // transporter.sendMail(mailData, function (err, info) {
+            //     if (err) {
+            //         console.log(err)
+            //         return response.status(500).json({ message: "Internal Server Error" });
 
-                } else
-                    return response.status(201).json({ message: "sucesss", result: result })
-            });
+            //     } else
+            //         return response.status(201).json({ message: "sucesss", result: result })
+            // });
 
 
 

@@ -1,2 +1,7 @@
-.env.*
 node_modules/
+.env
+.env.dev
+.env.staging
+.env.production
+dist/
+build/
